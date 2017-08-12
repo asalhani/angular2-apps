@@ -1,1 +1,31 @@
-<p-spinner size="30" [(ngModel)]="val"></p-spinner>
+<p-growl [(value)]="msgs"></p-growl>
+
+<p-dataTable [value]="orgs">
+    <p-column field="CRNumber" header="CR #"></p-column>
+    <p-column field="Name" header="Name"></p-column>
+    <p-column field="CRStatus" header="Status"></p-column>
+    <p-column field="IsMainCR" header="Is Main?"></p-column>
+    <p-column styleClass="col-button">
+        <ng-template let-org="rowData" let-i="rowIndex" pTemplate="body">
+            <button type="button" pButton icon="fa-check" (click)="selectOrg(org)" icon="fa-search">
+                details
+            </button>
+            <button type="button" pButton icon="fa-check" (click)="deleteOrg(i)" icon="fa-search">
+                delete
+            </button>
+        </ng-template>
+    </p-column>
+</p-dataTable>
+
+<p-dialog 
+    header="Title" 
+    [(visible)]="showDialogProp" 
+    (onHide)="onCloseDialog(e)"
+    [modal]="true"
+    [draggable]="false"
+    [resizable]="false"
+    [closeOnEscape]="true"
+    [dismissableMask]="true"
+    [showHeader]="false">
+    <p>CR Number: {{curentOrg?.CRNumber}}</p>
+</p-dialog>
