@@ -5,11 +5,11 @@ import { DataGridComponent } from "app/components/data-grid/data-grid.component"
 
 const routes: Routes = [
     { path: 'grid', component: DataGridComponent },
-    {
-        path: '',
-        redirectTo: '/home',
-        pathMatch: 'full'
-    },
+    // {
+    //     path: '',
+    //     redirectTo: '/home',
+    //     pathMatch: 'full'
+    // },
     // {
     //     path: '**',
     //     redirectTo: 'home',
