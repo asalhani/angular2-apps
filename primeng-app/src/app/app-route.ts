@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { DataGridComponent } from "app/components/data-grid/data-grid.component";
+import { DataGridComponent } from "./components/data-grid/data-grid.component";
+import { InputValidationComponent } from './components/input-validation/input-validation.component';
 
 const routes: Routes = [
     { path: 'grid', component: DataGridComponent },
+    { path: 'inputValidation', component: InputValidationComponent },
     {
         path: '',
         redirectTo: '/home',
