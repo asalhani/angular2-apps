@@ -1,14 +1,15 @@
 <form #myForm="ngForm" name="myForm" novalidate>
   <div class="alert-email">
     <label>Email</label>
-    <input id="contactemail" type="text" #contactemail="ngModel" name="email" [(ngModel)]="model.contactemail" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+    <input id="contactemail" type="text" #contactemail="ngModel" name="email" [(ngModel)]="model.contactemail" required 
+    pattern="^[_a-z0-9]+(.[_a-z0-9]+)@[a-z0-9-]+(.[a-z0-9-]+)(.[a-z]{2,4})$"
       maxlength="150"> 
       <p>{{contactemail.errors | json}}</p>
-    <div class="md-errors-spacer" [hidden]="contactemail.valid">
-      <div *ngIf="contactemail.errors && contactemail.errors.required && myForm.submitted">
+    <div class="md-errors-spacer" [hidden]="contactemail.valid || contactemail.untouched">
+      <div *ngIf="contactemail.errors && contactemail.errors.required">
         Email is required
       </div>
-      <div *ngIf="contactemail.errors && contactemail.errors.pattern && myForm.submitted">
+      <div *ngIf="contactemail.errors && contactemail.errors.pattern">
         Email is invalid
       </div>
     </div>
@@ -18,7 +19,7 @@
     <label>Mobile</label>
     <input id="contactmobile" type="text" #contactmobile="ngModel" name="mobile" [(ngModel)]="model.contactmobile" maxlength="10"
       minlength="10" required pattern="^05([0-9]*)$"> {{contactmobile.errors | json}}
-    <div class="md-errors-spacer" [hidden]="contactmobile.valid">
+    <div class="md-errors-spacer" [hidden]="contactmobile.valid || contactmobile.untouched">
       <div *ngIf="contactmobile.errors && contactmobile.errors.required && myForm.submitted">
         Mobile is required
       </div>
@@ -29,6 +30,6 @@
   </div>
   <div>form valid: {{myForm.valid}}</div>
   <div>
-    <button type="submit" (click)="submit(myForm)">submit</button>
+    <button type="submit" (click)="submit(myForm)" [disabled]="!myForm.valid">submit</button>
   </div>
 </form>
