@@ -6,9 +6,6 @@ export class ApplicantOrgnizationRelationModel {
 
 
 export class OrgnizationModel {
-    constructor(){
-        this.ApplicantOrgRelation = new Array<ApplicantOrgnizationRelationModel>();
-    }
     CRNumber: string;
     Name: string;
     Address: string;

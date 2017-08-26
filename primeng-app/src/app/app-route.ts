@@ -6,20 +6,12 @@ import { InputValidationComponent } from './components/input-validation/input-va
 
 const routes: Routes = [
     { path: 'grid', component: DataGridComponent },
-<<<<<<< HEAD
     { path: 'inputValidation', component: InputValidationComponent },
     {
         path: '',
         redirectTo: '/home',
         pathMatch: 'full'
     },
-=======
-    // {
-    //     path: '',
-    //     redirectTo: '/home',
-    //     pathMatch: 'full'
-    // },
->>>>>>> 7a95abc3754c6a67119158acaa856a8782f4a215
     // {
     //     path: '**',
     //     redirectTo: 'home',
